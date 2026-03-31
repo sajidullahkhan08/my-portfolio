@@ -17,7 +17,7 @@ npm-debug.log*
 # --- Uploads (local temp files) ---
 uploads/
 tmp/
-C:\Users\Administrator\Desktop\my-portfolio\server\seed.js
+seed.js/
 
 # --- OS Files ---
 .DS_Store
