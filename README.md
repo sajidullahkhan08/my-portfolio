@@ -617,10 +617,9 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 **Sajidullah Khan**
 
-- **Role:** Full-Stack Developer & Philosophical Thinker
+- **Role:** Full-Stack Developer
 - **Location:** Islamabad, Pakistan
-- **Education:** BS Computer Science (6th Semester, CGPA ~3.5)
-- **GitHub:** [github.com/sajidullahkhan](https://github.com/sajidullahkhan)
+- **Education:** BS Computer Science
 
 ---
 
