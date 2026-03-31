@@ -1,0 +1,78 @@
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-sans);
+}
+
+.filter-tab:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+
+.filter-tab.active {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item {
+  padding: 32px;
+}
+
+.project-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.featured-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--warning);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.project-item-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.project-item-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.project-item-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}

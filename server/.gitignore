@@ -1,0 +1,30 @@
+# ==========================
+# Server .gitignore
+# ==========================
+
+# --- Dependencies ---
+node_modules/
+
+# --- Environment Variables ---
+.env
+.env.*
+
+# --- Logs ---
+logs/
+*.log
+npm-debug.log*
+
+# --- Uploads (local temp files) ---
+uploads/
+tmp/
+
+# --- OS Files ---
+.DS_Store
+Thumbs.db
+
+# --- IDE ---
+.vscode/
+.idea/
+
+# --- Coverage ---
+coverage/

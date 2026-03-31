@@ -1,0 +1,28 @@
+.about-content {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+}
+
+.about-content p { margin-bottom: 20px; }
+.about-content em { color: var(--accent-primary); font-style: italic; }
+.about-content strong { color: var(--text-primary); }
+
+.about-section {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-color);
+}
+
+.about-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
