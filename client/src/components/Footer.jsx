@@ -22,10 +22,10 @@ export default function Footer() {
           </div>
           <div className="footer-links-group">
             <h4>Connect</h4>
-            <a href="https://github.com/sajidullahkhan" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/sajidullahkhan08" target="_blank" rel="noopener noreferrer">
               <FiGithub size={14} /> GitHub
             </a>
-            <a href="mailto:sajidullahkhan@example.com">
+            <a href="mailto:sajiidullahkhan0348@gmail.com">
               <FiMail size={14} /> Email
             </a>
           </div>

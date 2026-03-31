@@ -14,6 +14,9 @@ logs/
 *.log
 npm-debug.log*
 
+# --- Seed Data ---
+seed.js
+
 # --- Uploads (local temp files) ---
 uploads/
 tmp/
