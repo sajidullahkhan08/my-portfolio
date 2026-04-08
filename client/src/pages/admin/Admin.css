@@ -135,7 +135,42 @@
   font-weight: 600;
 }
 
-.logout-link { color: var(--error) !important; }
+.logout-link {
+  color: var(--error) !important;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 101;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.hamburger-menu:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--accent-primary);
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
 
 .admin-main {
   flex: 1;
@@ -310,9 +345,254 @@
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
+@media (max-width: 1024px) {
+  .admin-main {
+    padding: 24px;
+  }
+
+  .admin-page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-wrapper {
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .admin-sidebar { width: 60px; }
-  .sidebar-link span, .sidebar-logo, .sidebar-user { display: none; }
-  .admin-main { margin-left: 60px; }
-  .form-row { grid-template-columns: 1fr; }
+  /* Hamburger Menu Display */
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .sidebar-overlay {
+    display: block;
+  }
+
+  /* Sidebar positioning and animation */
+  .admin-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    transition: left var(--transition-fast);
+    z-index: 100;
+    border-right: 1px solid var(--border-color);
+  }
+
+  .admin-sidebar.open {
+    left: 0;
+  }
+
+  .admin-sidebar.open ~ .sidebar-overlay {
+    display: block;
+  }
+
+  .sidebar-header {
+    padding: 20px 24px;
+  }
+
+  .sidebar-logo {
+    font-size: 1.2rem;
+  }
+
+  .sidebar-nav {
+    padding: 12px;
+  }
+
+  .sidebar-link {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .sidebar-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Main Content */
+  .admin-main {
+    margin-left: 0;
+    padding: 70px 20px 20px 20px;
+  }
+
+  /* Forms */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+
+  /* Buttons */
+  .btn {
+    min-height: 44px;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  /* Tables */
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-wrapper table {
+    font-size: 0.8rem;
+  }
+
+  .table-wrapper td,
+  .table-wrapper th {
+    padding: 8px;
+  }
+
+  /* Modals */
+  .admin-modal {
+    max-height: 90vh;
+    margin: 10px;
+  }
+
+  .admin-modal-header {
+    margin-bottom: 16px;
+  }
+
+  .admin-modal-header h2 {
+    font-size: 1.1rem;
+  }
+
+  /* Grid */
+  .admin-page-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Upload Areas */
+  .upload-area {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  /* Media Library */
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .media-item {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra-compact layout */
+  .hamburger-menu {
+    width: 40px;
+    height: 40px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .admin-main {
+    padding: 60px 12px 12px 12px;
+  }
+
+  /* Forms */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+
+  .form-label {
+    font-size: 0.8rem;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  /* Buttons */
+  .btn {
+    width: 100%;
+    min-height: 40px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  .btn + .btn {
+    margin-top: 8px;
+  }
+
+  /* Typography */
+  .admin-page-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .admin-modal-header h2 {
+    font-size: 1rem;
+  }
+
+  /* Tables */
+  .table-wrapper table {
+    font-size: 0.75rem;
+  }
+
+  .table-wrapper td,
+  .table-wrapper th {
+    padding: 6px;
+  }
+
+  /* Modals */
+  .admin-modal {
+    max-height: 85vh;
+    margin: 5px;
+    padding: 16px;
+  }
+
+  /* Media Grid */
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .media-item {
+    padding: 6px;
+  }
+
+  /* Status Badge */
+  .status-badge {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+  }
+
+  /* Upload Area */
+  .upload-area {
+    min-height: 100px;
+    padding: 12px;
+  }
 }

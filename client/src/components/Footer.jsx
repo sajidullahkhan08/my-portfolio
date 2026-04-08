@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { FiGithub, FiMail, FiHeart } from 'react-icons/fi';
-import './Footer.css';
+import { Link } from "react-router-dom";
+import { FiGithub, FiMail, FiHeart } from "react-icons/fi";
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -9,9 +9,12 @@ export default function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <span className="logo-accent">S</span>ajidullah<span className="logo-dot">.</span>
+              <span className="logo-accent">S</span>ajidullah Khan
+              <span className="logo-dot">.</span>
             </Link>
-            <p className="footer-tagline">Full-Stack Developer & Philosophical Thinker</p>
+            <p className="footer-tagline">
+              Full-Stack Developer & Philosophical Thinker
+            </p>
           </div>
           <div className="footer-links-group">
             <h4>Navigate</h4>
@@ -22,7 +25,11 @@ export default function Footer() {
           </div>
           <div className="footer-links-group">
             <h4>Connect</h4>
-            <a href="https://github.com/sajidullahkhan08" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/sajidullahkhan08"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FiGithub size={14} /> GitHub
             </a>
             <a href="mailto:sajiidullahkhan0348@gmail.com">
@@ -31,7 +38,10 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Sajidullah Khan. Crafted with <FiHeart size={12} className="heart-icon" /> and purpose.</p>
+          <p>
+            © {new Date().getFullYear()} Sajidullah Khan. Crafted with{" "}
+            <FiHeart size={12} className="heart-icon" /> and purpose.
+          </p>
         </div>
       </div>
     </footer>
