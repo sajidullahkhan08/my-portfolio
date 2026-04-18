@@ -83,10 +83,12 @@
 }
 
 .hero-title {
+  font-family: var(--font-serif);
   font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.15;
   margin-bottom: 20px;
+  letter-spacing: -0.5px;
   background: linear-gradient(
     135deg,
     var(--text-primary) 0%,

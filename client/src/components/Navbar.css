@@ -10,7 +10,7 @@
 }
 
 .navbar-scrolled {
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(15, 10, 6, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
@@ -18,7 +18,7 @@
 }
 
 [data-theme="light"] .navbar-scrolled {
-  background: rgba(248, 249, 252, 0.9);
+  background: rgba(250, 247, 240, 0.92);
 }
 
 .navbar-container {
@@ -28,8 +28,9 @@
 }
 
 .navbar-logo {
+  font-family: var(--font-serif);
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.5px;
 }

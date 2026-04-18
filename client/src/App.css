@@ -1,2 +1,43 @@
-#app { min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; }
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+/* Islamic Geometric Pattern Overlay — SVG-based, subtle */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%23c99846' stroke-width='0.5'/%3E%3Cpath d='M40 10L70 40L40 70L10 40Z' fill='none' stroke='%23c99846' stroke-width='0.3'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23c99846' stroke-width='0.3'/%3E%3Cpath d='M40 25L55 40L40 55L25 40Z' fill='none' stroke='%23c99846' stroke-width='0.25'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z' fill='none' stroke='%23554023' stroke-width='0.5'/%3E%3Cpath d='M40 10L70 40L40 70L10 40Z' fill='none' stroke='%23554023' stroke-width='0.3'/%3E%3Ccircle cx='40' cy='40' r='15' fill='none' stroke='%23554023' stroke-width='0.3'/%3E%3Cpath d='M40 25L55 40L40 55L25 40Z' fill='none' stroke='%23554023' stroke-width='0.25'/%3E%3C/svg%3E");
+}
+
+/* Section separator — ornamental horizontal rule */
+.section + .section {
+  position: relative;
+}
+
+.section + .section::before {
+  content: "◆";
+  display: block;
+  text-align: center;
+  color: var(--accent-primary);
+  font-size: 0.6rem;
+  opacity: 0.4;
+  letter-spacing: 24px;
+  padding-bottom: 8px;
+}
