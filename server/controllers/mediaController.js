@@ -11,9 +11,16 @@ exports.uploadMedia = async (req, res, next) => {
         .status(400)
         .json({ success: false, message: "No file uploaded" });
     const folder = req.body.folder || "portfolio";
-    const result = await uploadToCloudinary(req.file.buffer, {
+
+    // PDFs and other non-image/non-video files must use 'raw' resource_type
+    const isRaw = req.file.mimetype === "application/pdf" ||
+      (!req.file.mimetype.startsWith("image/") && !req.file.mimetype.startsWith("video/"));
+    const uploadOpts = {
       folder: `portfolio/${folder}`,
-    });
+      ...(isRaw && { resource_type: "raw" }),
+    };
+
+    const result = await uploadToCloudinary(req.file.buffer, uploadOpts);
     const media = await Media.create({
       publicId: result.public_id,
       url: result.url,

@@ -19,6 +19,7 @@ export default function HomePage() {
   const [blogs, setBlogs] = useState([]);
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -97,9 +98,42 @@ export default function HomePage() {
                 {hero?.cta || "View My Work"} <FiArrowRight />
               </Link>
               {cvFileUrl && (
-                <a href={cvFileUrl} download className="btn btn-primary">
-                  Download CV <FiDownload />
-                </a>
+                <button
+                  className="btn btn-primary"
+                  disabled={downloading}
+                  onClick={async () => {
+                    setDownloading(true);
+                    try {
+                      // Fix Cloudinary URL: PDFs need /raw/upload/ not /image/upload/
+                      let url = cvFileUrl
+                        .replace("/image/upload/", "/raw/upload/")
+                        .replace("/video/upload/", "/raw/upload/");
+                      // Add fl_attachment flag to force download
+                      if (!url.includes("fl_attachment")) {
+                        url = url.replace("/upload/", "/upload/fl_attachment/");
+                      }
+                      const response = await fetch(url);
+                      const blob = await response.blob();
+                      const link = document.createElement("a");
+                      link.href = URL.createObjectURL(blob);
+                      link.download = "Sajidullah_Khan_CV.pdf";
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      URL.revokeObjectURL(link.href);
+                    } catch (err) {
+                      // Fallback: open in new tab
+                      window.open(
+                        cvFileUrl.replace("/image/upload/", "/raw/upload/"),
+                        "_blank"
+                      );
+                    } finally {
+                      setDownloading(false);
+                    }
+                  }}
+                >
+                  {downloading ? "Downloading..." : "Download CV"} <FiDownload />
+                </button>
               )}
               <Link to="/blog" className="btn btn-outline">
                 Read My Blog

@@ -55,7 +55,8 @@ export default function SiteSettings() {
       const formData = new FormData();
       formData.append("file", file);
       const res = await mediaAPI.upload(formData);
-      const url = res.data.data.secureUrl || res.data.data.url;
+      let url = res.data.data.secureUrl || res.data.data.url;
+      url = url.replace("/image/upload/", "/raw/upload/");
       setConfig((prev) => ({ ...prev, cvFileUrl: url }));
       setMsg("CV file uploaded successfully!");
       setTimeout(() => setMsg(""), 3000);
