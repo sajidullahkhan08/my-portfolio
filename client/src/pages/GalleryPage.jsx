@@ -10,19 +10,23 @@ export default function GalleryPage() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [page, setPage] = useState(1);
 
   const fetchGallery = async (category = "all", pageNum = 1) => {
     setLoading(true);
+    setError("");
     try {
       const params = { page: pageNum, limit: 50 };
       if (category !== "all") params.category = category;
       const res = await mediaAPI.getGallery(params);
-      setImages(res.data.data);
+      setImages(res.data.data || []);
     } catch (err) {
       console.error("Error fetching gallery:", err);
+      setError("Failed to load gallery images.");
+      setImages([]);
     } finally {
       setLoading(false);
     }
@@ -44,6 +48,7 @@ export default function GalleryPage() {
 
   useEffect(() => {
     fetchGallery(selectedCategory, page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory, page]);
 
   const openLightbox = (index) => {
@@ -141,6 +146,23 @@ export default function GalleryPage() {
             <div className="loading-container">
               <div className="spinner" />
             </div>
+          ) : error ? (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "80px 0",
+                color: "var(--text-secondary)",
+              }}
+            >
+              <p style={{ fontSize: "1.05rem" }}>{error}</p>
+              <button
+                className="btn btn-outline"
+                style={{ marginTop: 16 }}
+                onClick={() => fetchGallery(selectedCategory, page)}
+              >
+                Try Again
+              </button>
+            </div>
           ) : images.length === 0 ? (
             <div
               style={{
@@ -151,6 +173,9 @@ export default function GalleryPage() {
             >
               <p style={{ fontSize: "1.05rem" }}>
                 No images in this gallery yet.
+              </p>
+              <p style={{ fontSize: "0.9rem", marginTop: 8, color: "var(--text-tertiary)" }}>
+                Upload images via the Admin → Media Library to populate the gallery.
               </p>
             </div>
           ) : (
