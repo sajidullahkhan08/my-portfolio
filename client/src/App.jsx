@@ -24,6 +24,7 @@ import ManageExperience from "./pages/admin/ManageExperience";
 import ManageTestimonials from "./pages/admin/ManageTestimonials";
 import MediaLibrary from "./pages/admin/MediaLibrary";
 import SiteSettings from "./pages/admin/SiteSettings";
+import AccountSettings from "./pages/admin/AccountSettings";
 import "./App.css";
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
                 <Route path="testimonials" element={<ManageTestimonials />} />
                 <Route path="media" element={<MediaLibrary />} />
                 <Route path="settings" element={<SiteSettings />} />
+                <Route path="account" element={<AccountSettings />} />
               </Route>
             </Routes>
           </BrowserRouter>

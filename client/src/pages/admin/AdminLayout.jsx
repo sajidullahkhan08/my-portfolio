@@ -10,6 +10,7 @@ import {
   FiMessageSquare,
   FiImage,
   FiSettings,
+  FiLock,
   FiLogOut,
   FiMenu,
   FiX,
@@ -29,6 +30,7 @@ const sidebarLinks = [
   },
   { path: "/admin/media", icon: <FiImage />, label: "Media" },
   { path: "/admin/settings", icon: <FiSettings />, label: "Settings" },
+  { path: "/admin/account", icon: <FiLock />, label: "Account" },
 ];
 
 export default function AdminLayout() {
